@@ -11,10 +11,30 @@
 <body>
     <div class="wrapper">
         <div class="container">
-            <div class="header">
+        <div class="header">
                 <form class="title" action="/index.php" >
                     <button class="title__button">Анна Суворова</button>
                 </form>
+                <div class="menu-burger">
+                    <input  class="icons menu-burger" type="image" src="/img/icons/icons8-меню-50.png" onclick="activeBurgerMenu()">
+                    <div class="menu-burger__slide ">
+                        <form action="/index.php">
+                            <button class="h4">Проекты</button>
+                        </form>
+                        <form action="/template/about-me.php">
+                            <button class="h4">Обо мне</button>
+                        </form>
+                        <form action="/template/publication.php">
+                            <button class="h4">Публикации</button>
+                        </form>
+                        <form action="/template/price.php">
+                            <button class="h4">Цены</button>
+                        </form>
+                        <form action="/template/contacts.php">
+                            <button class="h4">Контакты</button>
+                        </form>
+                    </div>
+                </div>
                 <div class="menu">
                     <form action="/index.php">
                         <button class="h4">Проекты</button>
@@ -32,7 +52,7 @@
                         <button class="h4">Контакты</button>
                     </form>
                 </div>
-            </div>
+        </div>
             <div class="publication-table">
                 <div class="publication-table__title">ПУБЛИКАЦИИ ПРОЕКТОВ И ИНТЕРВЬЮ В ВЕДУЩИХ СМИ ПО ВСЕМУ МИРУ:</div>
                 <ul>
@@ -96,4 +116,5 @@
         </div>
     </div>
 </body>
+    <script src="/javascript/script.js"></script>
 </html> 

@@ -26,14 +26,17 @@ $result = $mysqli->query("SELECT * FROM `projects_db` WHERE `id` = $id");
 $result = $result->fetch_all(MYSQLI_ASSOC);
 foreach ($result as $result) {
 }
+if ($result["photographer"] == '-') {
+    $result["photographer"] = false;
+}
 
 $project = new Project;
 $project -> name = $result["name"];
 $project -> location = $result["location"];
 $project -> yardag = $result["yardag"];
 $project -> design = $result["design"];
-$project -> photographer = $result["photographer"];
 $project -> year = $result["year"];
+$project -> photographer = $result["photographer"];
 
 require_once '/my-project/anna-suvorova/template/project.php';
 

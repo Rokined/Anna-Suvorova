@@ -15,10 +15,30 @@
 <body>
     <div class="wrapper">
         <div class="container">
-            <div class="header">
+        <div class="header">
                 <form class="title" action="/index.php" >
                     <button class="title__button">Анна Суворова</button>
                 </form>
+                <div class="menu-burger">
+                    <input  class="icons menu-burger" type="image" src="/img/icons/icons8-меню-50.png" onclick="activeBurgerMenu()">
+                    <div class="menu-burger__slide ">
+                        <form action="/index.php">
+                            <button class="h4">Проекты</button>
+                        </form>
+                        <form action="/template/about-me.php">
+                            <button class="h4">Обо мне</button>
+                        </form>
+                        <form action="/template/publication.php">
+                            <button class="h4">Публикации</button>
+                        </form>
+                        <form action="/template/price.php">
+                            <button class="h4">Цены</button>
+                        </form>
+                        <form action="/template/contacts.php">
+                            <button class="h4">Контакты</button>
+                        </form>
+                    </div>
+                </div>
                 <div class="menu">
                     <form action="/index.php">
                         <button class="h4">Проекты</button>
@@ -36,23 +56,51 @@
                         <button class="h4">Контакты</button>
                     </form>
                 </div>
-            </div>
+        </div>
             <div class="card-project">
                 <div class="card-project__wrapper-photo">
-                    <div class="slider">
-                        <?php echo '<input class="slider__input" type="image" src="/img/id_' . $id . '/id_' . $id . ' (' . '1' . ').jpg">'; ?>
-                        <?php echo '<input class="slider__input" type="image" src="/img/id_' . $id . '/id_' . $id . ' (' . '2' . ').jpg">'; ?>
-                        <?php echo '<input class="slider__input" type="image" src="/img/id_' . $id . '/id_' . $id . ' (' . '3' . ').jpg">'; ?>
-                        <?php echo '<input class="slider__input" type="image" src="/img/id_' . $id . '/id_' . $id . ' (' . '4' . ').jpg">'; ?>
+                    <div class="btn_block">
+                        <button class="btn prev" onclick="minSlide()">  &#10094; </button>
+                    </div>
+                        <div class="slider">
+                            <div class="slide">
+                                <?php echo '<img class="slide__img" src="/img/id_' . $id . '/id_' . $id . ' (' . 1 . ').jpg">' ?>
+                            </div>
+                            <div class="slide">
+                                <?php echo '<img class="slide__img" src="/img/id_' . $id . '/id_' . $id . ' (' . 2 . ').jpg">' ?>
+                            </div>
+                            <div class="slide">
+                                <?php echo '<img class="slide__img" src="/img/id_' . $id . '/id_' . $id . ' (' . 3 . ').jpg">' ?>
+                            </div>
+                            <div class="slide">
+                                <?php echo '<img class="slide__img" src="/img/id_' . $id . '/id_' . $id . ' (' . 4 . ').jpg">' ?>
+                            </div>
+                            <div class="slide">
+                                <?php echo '<img class="slide__img" src="/img/id_' . $id . '/id_' . $id . ' (' . 5 . ').jpg">' ?>
+                            </div>
+                            <div class="slide">
+                                <?php echo '<img class="slide__img" src="/img/id_' . $id . '/id_' . $id . ' (' . 6 . ').jpg">' ?>
+                            </div>
+                        </div>
+                    <div class="btn_block">
+                        <button class="btn next" onclick="plusSlide()">  &#10095; </button>
                     </div>
                 </div>
                 <div class="card-project__atribut">
-                    <div class="card-project__name">Имя проекта: <?php echo ($project->name) . '<br>'; ?></div>
-                    <div class="card-project__location">Локация: <?php echo ($project->location) . '<br>'; ?></div>
-                    <div class="card-project__yardag">Пдощадь: <?php echo ($project->yardag)?>м²<br></div>
-                    <div class="card-project__design">Дизайнер: <?php echo ($project->design) . '<br>'; ?></div>
-                    <div class="card-project__photographer">Фотограф: <?php echo ($project->photographer) . '<br>'; ?></div>
-                    <div class="card-project__year">Год: <?php echo ($project->year) . '<br>'; ?></div>
+                    <div class="card-project__name"><?php echo ($project->name) . '<br>'; ?></div>
+                    <div class="card-project__location">локация: <?php echo ($project->location) . '<br>'; ?></div>
+                    <div class="card-project__yardag">площадь: <?php echo ($project->yardag)?>м²<br></div>
+                    <div class="card-project__design">дизайн: <?php echo ($project->design) . '<br>'; ?></div>
+                    <div class="card-project__photographer">
+                        <?php if ($result["photographer"] == false) {
+                        echo ''; 
+                        }
+                        else{
+                            echo ("фотограф: " . $project -> photographer . '<br>');
+                        }
+                        ?>
+                    </div>
+                    <div class="card-project__year">год: <?php echo ($project->year) . '<br>'; ?></div>
                 </div>
             </div>
             <div class="footer">
@@ -70,5 +118,6 @@
             </div>
         </div>
     </div>
+    <script src="/javascript/script.js"></script>
 </body>
 </html> 
